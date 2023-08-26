@@ -27,7 +27,6 @@ This will install the packages from the requirements.txt for this project.
 '''
 
 app = Flask(__name__)
-# app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 app.config['SECRET_KEY'] = os.environ('SECRET_KEY')
 ckeditor = CKEditor(app)
 Bootstrap5(app)
@@ -50,7 +49,6 @@ def load_user(user_id):
     return db.get_or_404(User, user_id)
 
 # CONNECT TO DB
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///posts.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ('DATABASE_URL')
 db = SQLAlchemy()
 db.init_app(app)
